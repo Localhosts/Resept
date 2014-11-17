@@ -11,10 +11,10 @@ public class Person
   private String navn;
   private String fødselsdato;
 
-    public Person(String n, String f)
+    public Person(String n, String fd)
     {
         this.navn = n;
-        this.fødselsdato = f;
+        this.fødselsdato = fd;
     }
 
     public String getNavn()
@@ -30,7 +30,7 @@ public class Person
   public String toString()
   {
     String tekstp;
-    tekstp = "Navn: " + getNavn() + "\nFødselsdato" + getFødselsdato() + "\n";
+    tekstp = "Navn: " + navn + "\nFødselsdato" + fødselsdato + "\n";
     return tekstp;
       /*< Metoden skal returnere navn og fødselsdato i form av tekst. >*/
   }
