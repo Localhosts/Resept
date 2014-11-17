@@ -66,26 +66,26 @@ public class Lege extends Person
 
   public String nyResept( Resept r )
   {
-    /*< Metoden mottar en resept som parameter og setter den, om mulig,
-      inn i arrayen av resepter. Hvis dette gikk bra, skal metoden returnere
-      informasjon om selve resepten, og i motsatt fall skal den returnere
-      informasjon om at det ikke var plass i arrayen. >*/
-        if( r != null && antResepter < resepter.length ) {
-        	resepter[antResepter++] = r;
-                return r;
-        }
-        else
-        	return "Det er ikke plass til flere resepter";
-  }//  public String nyResept( int r ) Annen versjon?
-  //{
+		for( int i = 0; i < resepter.length; i++ )
+		{
+  		if( r != null && antResepter < resepter.length )
+			{
+				resepter[antResepter++] = r;
+				return "";
+			}
+			return "Det er ikke plass til flere resepter";
+		}
+  }
+	//public String nyResept( int r ) Annen versjon?
+	//{
 	//	for (int i = 0; i < antResepter; i++)
 	//	{
 	//		if( resepter[i].getNr() == r )
-      //{/
-      //	return resepter[i].toString();
-    // 	}
-  //   return null; //ikke plass i arrayen
-//	 	}
+	//		{
+	//		return resepter[i].toString();
+	// 		}
+	//   return null; //ikke plass i arrayen
+	//}
 
   public String utskrevneResepter()
   {
@@ -94,18 +94,19 @@ public class Lege extends Person
       omvendt kronologisk rekkefølge slik at de nyeste reseptene kommer
       første og de eldste sist. Hvis legen ikke har skrevet ut noen
       resepter, skal metoden returnere informasjon om det. >*/
-	if ( resepter.length != null ) {
-		for ( int i = 0; i <= resepter.length; i++ ) {
-                	int ut = antResepter;
-                	String utskrevet += "\n" + resepter[ut--];
-             	}
-             	return utskrevet;
-        }
-    	else
-        	return "Legen har ikke registrert noen utskrevne resepter.";
+	if ( resepter.length != null )
+	{
+		for ( int i = 0; i <= resepter.length; i++ )
+		{
+			int ut = antResepter;
+			String utskrevet += "\n" + resepter[ut--];
+		}return utskrevet;
+	}
+  else
+  	return "Legen har ikke registrert noen utskrevne resepter.";
         	
-        	/*Annen versjon?
-        	  public String utskrevneResepter()
+	/*Annen versjon?
+	public String utskrevneResepter()
   {
 		String reseptliste = "";
 		for( int i = 0; i < antResepter; i++)
