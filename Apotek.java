@@ -1,7 +1,7 @@
 /*
 Navn (studentnummer):
 * Nicolai Olsen  (s181082)
-* Vidar Vasrud (s159718)/// ERBEST!
+* Vidar Vasrud (s159718)
 * Adrian Moen (s236368)
 Klasse: HINGDATA14HA
 */
