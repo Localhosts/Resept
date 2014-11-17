@@ -66,6 +66,12 @@ public class Lege extends Person
       inn i arrayen av resepter. Hvis dette gikk bra, skal metoden returnere
       informasjon om selve resepten, og i motsatt fall skal den returnere
       informasjon om at det ikke var plass i arrayen. >*/
+        if( r != null && antResepter < resepter.length ) {
+        	resepter[antResepter++] = r;
+                return r;
+        }
+        else
+        	return "Det er ikke plass til flere resepter";
   }
 
   public String utskrevneResepter()
@@ -75,5 +81,14 @@ public class Lege extends Person
       omvendt kronologisk rekkefølge slik at de nyeste reseptene kommer
       første og de eldste sist. Hvis legen ikke har skrevet ut noen
       resepter, skal metoden returnere informasjon om det. >*/
+	if ( resepter.length != null ) {
+		for ( int i = 0; i <= resepter.length; i++ ) {
+                	int ut = antResepter;
+                	String utskrevet += "\n" + resepter[ut--];
+             	}
+             	return utskrevet;
+        }
+    	else
+        	return "Legen har ikke registrert noen utskrevne resepter.";
   }
 }
