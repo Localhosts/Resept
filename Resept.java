@@ -23,12 +23,25 @@ public class Resept
 		this.lege = l;
 		this.nr = nesteNr;
 		nesteNr++;
-	}
+	}//		tekst = t;
+	//	nr = nesteNr;
+	//	pasient = new Pasient();
+	//	lege = new Lege();
       /*< Konstruktøren mottar reseptens tekst, legen og pasienten som parametre.
     Resepten blir tildelt et unikt nummer, datoen for opprettelsen
     av resepten blir registert, i tillegg til at annen nødvendig initialisering
     blir foretatt. >*/
 
+	public int nr()
+  {
+
+	}
+
+  	//<!!!!>
+  	//  Resepten blir tildelt et unikt nummer, datoen for opprettelsen
+  	//  av resepten blir registert, i tillegg til at annen nødvendig initialisering
+  	//  blir foretatt. >
+  	
 	public boolean getUtlevert()
 	{
 		return utlevert;
@@ -43,10 +56,17 @@ public class Resept
   {
 		utlevert = true;
   }
-
+  //{
+	//if (utlevert != false)
+	//{
+	//utlevert = true;
+	//	}
+	
   public String toString()
   {
     return "Returntekst fra klassen Resept";
+   	//return "Resept nummer: " + nr + "\n" + "Utlevert: " + utlevert;
+   	//Mangler info om resept
     /*< Metoden returnerer en tekst som innholder all informasjon på resepten,
       samt opplysninger om medisinen resepten foreskriver er utlevert eller
       ikke. >*/
