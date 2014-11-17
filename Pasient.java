@@ -52,17 +52,38 @@ public Pasient (String n, String fd)
   }
     /*< Metoden returnerer resepten med reseptnummer lik parameteren n.
       Hvis en slik ikke finnes, skal metoden returnere null. >*/
+ 
+ 	public String toString()
+  {
+		String journal = "";
+		int antIkkeAvhentet = 0;
 
-  public String toString()
+		for (int i = 0 ; i < antall; i++ )
+		{
+			if( resepter[i] != null )
+			{
+				journal += resepter[i] .toString() + "\n";
+
+				if( !resepter[i].getUtlevert() )
+					antIkkeAvhentet++;
+			}
+
+			journal =	super.toString() + "\nhar " +
+								(antIkkeAvhentet == 0 ? "ingen" : antIkkeAvhentet) +
+								" uavhentede resepter\n";
+
+		}return journal;
+  
+  /*public String toString()
   {
 		return super.toString() + "\n" + "\n" +
 						"antall uavhentede resepter " + resepter.toString();
-    /*< Metoden skal returnere all informasjon om pasienten og
+   
+    < Metoden skal returnere all informasjon om pasienten og
       vedkommendes resepter. Det skal fremgå av teksten om
       medisinene reseptene foreskriver  er utlevert eller ikke,
-      samt hvor mange resepter som ikke er avhentet. >*/
-      //IKKE FERDIG!!!
-  }
+      samt hvor mange resepter som ikke er avhentet. >
+  }*/
 
 } // end of class Pasient
 /*a) Programmer metoden public Resept finnResept( int n ).
