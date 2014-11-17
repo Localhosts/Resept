@@ -71,10 +71,9 @@ public class Lege extends Person
   		if( r != null && antResepter < resepter.length )
 			{
 				resepter[antResepter++] = r;
-				return "";
+				return "Resept: " + r; //noe ALLAH dette?
 			}
-			return "Det er ikke plass til flere resepter";
-		}
+		}return "Det er ikke plass til flere resepter";
   }
 	//public String nyResept( int r ) Annen versjon?
 	//{
@@ -89,21 +88,19 @@ public class Lege extends Person
 
   public String utskrevneResepter()
   {
-    /*< Metoden skal returnere en tekst som inneholder informasjon om
-      alle reseptene legen har skrevet ut. Reseptene skal skrives ut i
-      omvendt kronologisk rekkefølge slik at de nyeste reseptene kommer
-      første og de eldste sist. Hvis legen ikke har skrevet ut noen
-      resepter, skal metoden returnere informasjon om det. >*/
-	if ( resepter.length != null )
-	{
-		for ( int i = 0; i <= resepter.length; i++ )
+		String utskrevet = "";
+		int i = 0;
+
+		if ( resepter[i] != null )
 		{
-			int ut = antResepter;
-			String utskrevet += "\n" + resepter[ut--];
-		}return utskrevet;
-	}
-  else
-  	return "Legen har ikke registrert noen utskrevne resepter.";
+			for ( int j = 0; i <= resepter.length; j++ )
+			{
+				int ut = antResepter;
+				utskrevet += "\n" + resepter[ut--];
+			}return utskrevet;
+     }
+    else
+    	return "Legen har ikke registrert noen utskrevne resepter.";
         	
 	/*Annen versjon?
 	public String utskrevneResepter()
@@ -113,5 +110,9 @@ public class Lege extends Person
 			reseptliste += resepter[i].getUtlevert() + "\n";
 		return reseptliste;
 	}*/
-  }
+	/*< Metoden skal returnere en tekst som inneholder informasjon om
+      alle reseptene legen har skrevet ut. Reseptene skal skrives ut i
+      omvendt kronologisk rekkefølge slik at de nyeste reseptene kommer
+      første og de eldste sist. Hvis legen ikke har skrevet ut noen
+      resepter, skal metoden returnere informasjon om det. >*/
 }
