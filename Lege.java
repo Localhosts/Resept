@@ -32,12 +32,16 @@ public class Lege extends Person
 {
 	private String adresse, telefon;
 	private boolean lisens;
+	private static final int MAKSRESEPTER = 99;
 	private Resept[] resepter;
+	private int antResepter = 0;
 
-	public Lege( String adr, String tlf)
+	public Lege( String n, String fd, String adr, String tlf, int MAKSRESEPTER)
 	{
+		super(n ,fd);
 		this.adresse = adr;
 		this.telefon = tlf;
+		resepter = new Resept[MAKSRESEPTER];
 	}
 
 	public boolean getLisens()
@@ -57,7 +61,7 @@ public class Lege extends Person
 
 	public String toString()
 	{
-		return "Opplysninger om legen: \n" + super.toString() + "\n" + getAdresse()+ "\n" + getTelefon();
+		return "Opplysninger om legen: \n" + super.toString() + " " + lisens + "\n" + adresse + "\n" + telefon;
 	}
 
   public String nyResept( Resept r )
@@ -72,7 +76,16 @@ public class Lege extends Person
         }
         else
         	return "Det er ikke plass til flere resepter";
-  }
+  }//  public String nyResept( int r ) Annen versjon?
+  //{
+	//	for (int i = 0; i < antResepter; i++)
+	//	{
+	//		if( resepter[i].getNr() == r )
+      //{/
+      //	return resepter[i].toString();
+    // 	}
+  //   return null; //ikke plass i arrayen
+//	 	}
 
   public String utskrevneResepter()
   {
@@ -90,5 +103,14 @@ public class Lege extends Person
         }
     	else
         	return "Legen har ikke registrert noen utskrevne resepter.";
+        	
+        	/*Annen versjon?
+        	  public String utskrevneResepter()
+  {
+		String reseptliste = "";
+		for( int i = 0; i < antResepter; i++)
+			reseptliste += resepter[i].getUtlevert() + "\n";
+		return reseptliste;
+	}*/
   }
 }
