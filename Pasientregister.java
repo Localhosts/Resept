@@ -44,9 +44,9 @@ public class Pasientregister
   {
 		for( int i = 0; i < pasienter.length; i++ )
 		{
-			if( pasient[i] != null )
+			if( pasienter[i] != null )
 			{
-				return pasient[i];
+				return pasienter[i];
 			}
 		}return null;
    	/*< Metoden returnerer, hvis mulig, Pasient-objektet med
