@@ -68,9 +68,9 @@ public Pasient (String n, String fd)
 					antIkkeAvhentet++;
 			}
 
-			journal =	super.toString() + "\nhar " +
+			journal =	super.toString() + " " + "\nhar " +
 								(antIkkeAvhentet == 0 ? "ingen" : antIkkeAvhentet) +
-								" uavhentede resepter\n";
+								" uavhentede resepter";
 
 		}return journal;
   
