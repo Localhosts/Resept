@@ -8,7 +8,7 @@ Klasse: HINGDATA14HA
 
 /*< import-setninger>*/
 
-public class Legekontor extends JFrame
+public class Legekontor extends JFrame implements ActionListener
 {
   private Lege legen;
   private Pasientregister pasienter;
@@ -21,6 +21,38 @@ public class Legekontor extends JFrame
     super( "LEGE " + l.toString() );
     legen = l;
     pasienter = p;
+    pNavneFelt = new JTextField ( 30 );
+   	pFødtFelt = new JTextField ( 32 );
+   	utskrift = new JTextArea( 20, 35);
+   	utskrift.setEditable (false);
+   	editor = new JTextArea( 20, 35);
+   	editor.setEditable (true);
+   	nyPasient = new JButton("Ny pasient");
+   	finnPasient = new JButton("Finn pasient");
+   	sendResept = new JButton("Send resept");
+   	alleResepter = new JButton("Alle utskrevede resepter");
+
+   	nyPasient.addActionListener(Lytter);
+		finnPasient.addActionListener(Lytter);
+		SendResept.addActionListener(Lytter);
+		AlleResepter.addActionListener(Lytter);
+
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.add(new JLabel("Pasientdata (navn - ddmmåååå)"));
+		c.add(pNavneFelt, pFødtFelt);
+		c.add(nyPasient);
+		c.add(finnPasient);
+		c.add(sendResept);
+		c.add(alleResepter);
+		c.add(new JLabel("Resept-editor"));
+		c.add(editor);
+		c.add(new JScrollPane(editor));
+		c.add(new JLabel("Resepter"));
+		c.add(utskrift);
+		setSize( 410, 490);
+		setVisible( true );
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     /*< Oppretter alle skjermkomponentene og setter opp brukergrensesnittet. >*/
 
@@ -36,11 +68,38 @@ public class Legekontor extends JFrame
 
   public void nyPasient()
   {
+    		String navn = pNavnFelt.getText();
+		String fødselsdato = pFødtFelt.getText();
+
+		Pasiens ny_Pasient = new Pasient(navn, fødselsdato);
+
+		boolean ok = pasienter.nyPasient(ny_Pasient);
+
+		if(ok)
+			utskrift.setText(ny_Pasient.toString() + "\n er registrert");
+		else utskrift.setText("Registeret er fullt");
    /* < Metoden skal registrere en ny pasient i Pasientregisteret. >*/
   }
 
   public void finnPasient()
   {
+    		String navn = pNavnFelt.getText();
+		String fødselsdato = pFødtFelt.getText();
+		String pasientdata = pasienter.finnPasient(navn, dato);
+		String fødselsdata = pasienter[].finnPasient(dato);
+		if(fødselsdato != null)
+			{
+				if(navn != null && fødselsdato != null)
+				{
+					utskrift.setText(pasientdata);
+				}
+				else
+					utskrift.setText("Finner ikke pasienten " + navn + " " + fødselsdato);
+			}
+		else if
+			utskrift.setText(fødselsdata);
+		}
+		return utskrift.setText("Det finnes ingen pasienter med det fødselsnummeret");
     /*< Metoden skal i tekstområdet "utskrift" skrive ut informasjon
       om en ønsket pasient, forutsatt at både pasientens navn og
       fødselsdato er skrevet inn. Hvis imidlertid det kun er
@@ -63,6 +122,17 @@ public class Legekontor extends JFrame
       Resept-array. >*/
   }
 
+	public void actionPerformed(ActionEvent Lytter)
+	{
+		if(Lytter.getSource() == nyPasient)
+		  nyPasient();
+		else if(Lytter.getSource() == finnPasient)
+		  finnPasient();
+		else if(Lytter.getSource() == sendResept)
+		  sendResept();
+		else if(Lytter.getSource() == alleResepter)
+		   alleResepter();
+	}
    /*< private lytteklasse som skal fange opp hedelsene i vinduet. >*/
 
 }// end of class Legekontor
