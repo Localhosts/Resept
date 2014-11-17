@@ -7,7 +7,7 @@ Klasse: HINGDATA14HA
 */
 
 /*< import-setninger >*/
-public class Apotek extends JFrame
+public class Apotek extends JFrame implements ActionListener
 {
   private Pasientregister pasienter;
   private JTextField pNavnFelt, pFødtFelt, reseptNrFelt;
@@ -17,6 +17,29 @@ public class Apotek extends JFrame
   public Apotek( String apotek, Pasientregister p )
   {
     super( apotek + " apotek " );
+    pasienter = p;
+		pNavneFelt = new JTextField ( 30 );
+		pFødtFelt = new JTextField ( 32 );
+		reseptNrFelt = new JTextField ( 40 );
+		reseptOmråde = new JTextArea( 20, 35);
+		reseptOmråde.setEditable (false);
+		finnResepter = new JButton("Finn resepter");
+		registrerUtlevert = new JButton("Registrert utlevert");
+
+		finnResepter.addActionListener(Lytter);
+		registrerUtlevert.addActionListener(Lytter);
+
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.add(new JLabel("Pasientdata (navn - ddmmåååå)"));
+		c.add(pNavneFelt, pFødtFelt);
+		c.add(finnResepter);
+		c.add(new JLabel("Reseptens nummer"));
+		c.add(registrerUtlevert);
+		c.add(new JLabel("Resepter"));
+		c.add(reseptOmråde);
+		setSize( 410, 490);
+		setVisible( true );
 
     /*< Oppretter alle komponentene og setter opp brukergrensesnittet. >*/
 
