@@ -36,12 +36,13 @@ public class Lege extends Person
 	private Resept[] resepter;
 	private int antResepter = 0;
 
-	public Lege( String n, String fd, String adr, String tlf, int MAKSRESEPTER)
+	public Lege( String n, String fd, String adr, String tlf, int MAKSRESEPTER, boolean ok)
 	{
-		super(n ,fd);
+		super( n, fd );
 		this.adresse = adr;
 		this.telefon = tlf;
 		resepter = new Resept[MAKSRESEPTER];
+		lisens = ok;
 	}
 
 	public boolean getLisens()
