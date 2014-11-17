@@ -9,26 +9,38 @@ Klasse: HINGDATA14HA
 public class Pasientregister
 {
   private Pasient[] pasienter;
+  //private int antall;
 
   public Pasientregister( Pasient[] p )
   {
     pasienter =  p;
+    //antall = 0;
   }
 
   public boolean nyPasient( Pasient p )
   {
     for( int i = 0; i < pasienter.length; i++ )
     {
-			if( pasient[i] == null )
+			if( pasienter[i] == null )
 			{
-				pasient[i] = p;
+				pasienter[i] = p;
 				return true;
 			}
 		}return false;
+	
+	/*		if( antall < pasienter.length )
+		{
+			pasienter[ antall ] = p;
+			antall++;
+			return true;
+		}
+		else
+			return false;*/
+
     /*< Metoden setter, hvis mulig, inn Pasient-objektet p på første ledige
       plass i arrayen. Returverdien indikerer om dette var mulig eller ikke.>*/
   }
-  public Pasient finnPasient( String dato,  String navn )
+  public Pasient finnPasient( String navn,  String dato )
   {
 		for( int i = 0; i < pasienter.length; i++ )
 		{
@@ -42,7 +54,14 @@ public class Pasientregister
       Hvis et slikt objekt ikke finnes returnerer metoden null.
       NB! Denne metoden skal du ikke programmere! >*/
   }
-
+/*				for (int i = 0; i < pasienter.length; i++)
+				{
+					if (pasienter[i].getFødselsdato() == dato)
+						{
+							return pasienter[i].toString();
+						}
+				}
+				return null;*/
   public Pasient[] finnPasient( String dato )
   {
 
