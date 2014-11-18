@@ -89,3 +89,4 @@ public Pasient (String n, String fd)
 /*a) Programmer metoden public Resept finnResept( int n ).
 
 b) Programmer metoden public String toString().*/
+}
