@@ -99,10 +99,10 @@ public class Lege extends Person
 				int ut = antResepter;
 				utskrevet += "\n" + resepter[ut--];
 			}return utskrevet;
-     }
+   	}
     else
     	return "Legen har ikke registrert noen utskrevne resepter.";
-        	
+}
 	/*Annen versjon?
 	public String utskrevneResepter()
   {
@@ -116,4 +116,5 @@ public class Lege extends Person
       omvendt kronologisk rekkefølge slik at de nyeste reseptene kommer
       første og de eldste sist. Hvis legen ikke har skrevet ut noen
       resepter, skal metoden returnere informasjon om det. >*/
+
 }
