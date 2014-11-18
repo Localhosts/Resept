@@ -85,8 +85,8 @@ public Pasient (String n, String fd)
       samt hvor mange resepter som ikke er avhentet. >
   }*/
 
-} // end of class Pasient
+} 
 /*a) Programmer metoden public Resept finnResept( int n ).
 
 b) Programmer metoden public String toString().*/
-}
+}// end of class Pasient
